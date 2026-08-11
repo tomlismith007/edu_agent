@@ -1,0 +1,38 @@
+{
+  "name": "@edu-agent/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "test:encrypt": "tsx test/encrypt.test.ts",
+    "test:graduation": "tsx test/fixtures/parse-check.ts && tsx test/fixtures/url-guard-check.ts",
+    "test:agent": "tsx test/sse-normalize.test.ts && tsx test/agent-stream.test.ts && tsx test/agent-sse-e2e.test.ts",
+    "test:guard": "tsx test/session-guard.test.ts",
+    "test:rag": "tsx test/rag-router.test.ts && tsx test/rag-bm25-fusion.test.ts && tsx test/rag-chunk.test.ts && tsx test/rag-eval.ts"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.2.9",
+    "@langchain/langgraph": "^1.4.12",
+    "@langchain/openai": "^1.5.10",
+    "axios": "^1.7.9",
+    "chromadb": "^3.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "langchain": "^1.5.10",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

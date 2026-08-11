@@ -1,0 +1,101 @@
+/* Chat 专用样式：shadcn 不覆盖的 markdown 排版与状态动画。
+   颜色统一走 index.css 的 shadcn 令牌（--border / --muted / --primary 等）。 */
+
+.bubble p {
+  margin: 0.25rem 0;
+}
+.bubble p:first-child {
+  margin-top: 0;
+}
+.bubble p:last-child {
+  margin-bottom: 0;
+}
+.bubble ul,
+.bubble ol {
+  margin: 0.25rem 0 0.25rem 1.1rem;
+  padding: 0;
+}
+.bubble li {
+  margin: 0.15rem 0;
+}
+.bubble table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+  width: 100%;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+  overflow-y: hidden;
+}
+.bubble th,
+.bubble td {
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.5rem;
+  text-align: left;
+}
+.bubble th {
+  background: var(--muted);
+  font-weight: 600;
+}
+.bubble code {
+  background: var(--muted);
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+.bubble pre {
+  background: var(--muted);
+  padding: 0.6rem;
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin: 0.4rem 0;
+}
+.bubble pre code {
+  background: transparent;
+  padding: 0;
+}
+.bubble a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.bubble strong {
+  font-weight: 600;
+}
+
+/* 流式光标闪烁 */
+.cursor {
+  color: var(--primary);
+  font-weight: bold;
+  margin-left: 2px;
+  animation: chat-blink 0.8s infinite;
+}
+@keyframes chat-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 打字指示点（三点弹跳） */
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--muted-foreground);
+  animation: typing-bounce 1s infinite ease-in-out;
+}
+@keyframes typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+

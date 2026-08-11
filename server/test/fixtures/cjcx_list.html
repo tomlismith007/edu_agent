@@ -1,0 +1,2395 @@
+
+  
+  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head id="headerid1">
+	<base target='_self'>
+	<title>学生个人考试成绩</title>	
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="keywords" content="湖南强智科技教务系统">
+	<meta http-equiv="description" content="湖南强智科技教务系统">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+<script type="text/javascript" src="/jsxsd/js/jquery-min.js" language="javascript" ></script>
+<script type="text/javascript" src="/jsxsd/js/common.js" language="javascript" ></script>
+<script type="text/javascript" src="/jsxsd/js/iepngfix_tilebg.js" language="javascript" ></script>
+<link href="/jsxsd/framework/images/common.css" rel="stylesheet" type="text/css" />
+<link href="/jsxsd/framework/images/blue.css" rel="stylesheet" type="text/css" id="link_theme" />
+<link href="/jsxsd/framework/images/workstation.css" rel="stylesheet" type="text/css" /> 
+</head>
+<iframe id="notSession" name="notSession" style="display: none;" src=""></iframe>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	window.setInterval(function(){
+		 document.getElementById("notSession").src = "/jsxsd/framework/blankPage.jsp";
+	 }, 1000 * 60 * 10);
+});
+</script>
+<body>
+<!-- 
+
+
+
+
+
+
+
+<script>
+function opengld(){
+	if("1"!='2'){
+		alert("非教师不能进行切换");
+		return;
+	}
+	var height = $(window).height();
+	var width = $(window).width();
+	if(parseInt(height)<750){
+		document.getElementById("view").value = "1";
+	}else{
+		document.getElementById("view").value = "0";
+	}
+	//取得userid
+	var userid = '2022000001';
+	document.getElementById("useraccount").value = userid;
+	$.ajax({
+				cache: true,
+				type: "POST",
+				url:"/jsxsd/system/loginupdtoGld.do",
+				dataType: "json",
+				success: function(data) {
+					if(data.val=="1"){
+						document.getElementById("upd").value = data.upd;
+						document.getElementById("time").value = data.time;
+						document.getElementById("loginForm1").submit();
+
+					}else{
+						alert("异常导致不能进行切换");
+						return;
+					}
+				}
+			});
+}
+function LogoutGLD(){
+	var userid = '2022000001';
+	document.getElementById("loginForm1").action = "http://jiaowu2.hufe.edu.cn//Logon.do?method=logoutFromJsxsd";
+	document.getElementById("useraccount").value = userid;
+	document.getElementById("loginForm1").submit();
+}	
+
+</script>	
+<div class="Nsb_pw">
+  <div class="Nsb_top">
+  	<form action = "http://jiaowu2.hufe.edu.cn//Logon.do?method=logonFromJsxsd"  method="post" id="loginForm1" name="loginForm1">
+		<input type = "hidden" id="view" name="view" />
+		<input type = "hidden" id="useraccount" name="useraccount" />
+		<input type = "hidden" id="ticket" name="ticket" />
+		<input type="hidden" id="upd" name="upd" value="" />
+		<input type="hidden" id="time" name="time" value="" />
+	</form>
+    <div class="Nsb_top_logo"><table border="0" cellpadding="0" cellspacing="0"><tr><td height="75" valign="middle"><img style="display:;" id="imgLogo" src="/jsxsd/framework/images/index_logo.gif" /></td></tr></table></div>
+    <div class="Nsb_top_menu">        
+        <div id="Top1_divLoginName" class="Nsb_top_menu_nc" style="color: #000000;">测试学生(2022000001)</div>
+       
+        <ul>
+            <li><a id="TopUserSetting" info="个人设置" href="#" class="Nsb_top_menu_id"><img src="/jsxsd/framework/images/Nsb_top_p1.jpg" id="Top1_imgTopSmallUserPhoto" /></a></li>
+            <span></span>
+                          
+            
+            <li><a id="TopTheme" info="切换主题" href="#" class="Nsb_top_menu_style" onclick="changeDisplay('divTopTheme')"></a></li>
+            <span id="Top1_LBackManageSpliter"></span>
+            <span id="Top1_LExitSpliter"></span>
+            <li id="Top1_LBackManage">
+            	<a info="个人设置" href="/jsxsd/grsz/grsz_xggrxx.do?Ves632DSdyV=NEW_XSD_WDZM" class="Nsb_top_menu_options"></a>
+            </li>
+             
+        	 	<li id="Top1_LExit"><a info="退出" href="javascript:Logout('/jsxsd');"   class="Nsb_top_menu_exit"></a></li>
+        	 
+            
+            
+        </ul>            
+     </div>   
+     <div id="divTopTheme" group="topDiv" style="display:none;z-index:10000">      
+        <div class="Nsb_top_c Nsb_top_c3">
+          <ul>
+            <li id="theme_blue" theme="blue" index="1" class="Nsb_top_c3_11" onclick="javascript:changeTheme('/jsxsd','blue',this);"></li>
+            <li id="theme_green" theme="green" index="2" class="Nsb_top_c3_2"  onclick="javascript:changeTheme('/jsxsd','green',this);"></li>
+            <li id="theme_orange" theme="orange" index="3" class="Nsb_top_c3_3" onclick="javascript:changeTheme('/jsxsd','orange',this);"></li>
+            <li id="theme_red" theme="red" index="4" class="Nsb_top_c3_4"  onclick="javascript:changeTheme('/jsxsd','red',this);"></li>
+            <li id="theme_purple" theme="purple" index="5" class="Nsb_top_c3_5" onclick="javascript:changeTheme('/jsxsd','purple',this);"></li>
+            <li id="theme_gray" theme="gray" index="6" class="Nsb_top_c3_6"  onclick="javascript:changeTheme('/jsxsd','gray',this);"></li>
+          </ul>
+        </div>
+     </div>
+   </div>
+</div>
+<div class="Nsb_menu_pw">
+  <div class="Nsb_pw">
+    <div id="divFirstMenuClass" class="Nsb_menu menu_cn">
+      <ul>         
+         <li class="Nsb_menu_li_now" title="首页">
+         	<a class="Nsb_menu_li_h" id="homepage" href="/jsxsd/framework/xsMain.jsp"><span></span></a>
+         </li>
+         
+         	<li title="我的桌面">
+         		<a id="calender_user_schedule" href="/jsxsd/jxzl/jxzl_query?Ves632DSdyV=NEW_XSD_WDZM">我的桌面</a>
+         	</li>
+         
+         	<li title="学籍成绩">
+         		<a id="calender_user_schedule" href="/jsxsd/xsxj/xjxxgl.do?Ves632DSdyV=NEW_XSD_XJCJ">学籍成绩</a>
+         	</li>
+         
+         	<li title="培养管理">
+         		<a id="calender_user_schedule" href="/jsxsd/pyfa/topyfamx?Ves632DSdyV=NEW_XSD_PYGL">培养管理</a>
+         	</li>
+         
+         	<li title="考试报名">
+         		<a id="calender_user_schedule" href="/jsxsd/xsks/xsksap_query?Ves632DSdyV=NEW_XSD_KSBM">考试报名</a>
+         	</li>
+         
+         	<li title="实践环节">
+         		<a id="calender_user_schedule" href="/jsxsd/view/syjx/syyy_find.jsp?Ves632DSdyV=NEW_XSD_SJHJ">实践环节</a>
+         	</li>
+         
+         	<li title="教学评价">
+         		<a id="calender_user_schedule" href="/jsxsd/xspj/xspj_find.do?Ves632DSdyV=NEW_XSD_JXPJ">教学评价</a>
+         	</li>
+         
+         	<li title="学业指导">
+         		<a id="calender_user_schedule" href="/jsxsd/view/xyzd/xs_xmtb_find.jsp?Ves632DSdyV=NEW_XSD_XYZD">学业指导</a>
+         	</li>
+         
+      </ul>
+    </div>
+  </div>
+</div>-->
+<div class="Nsb_pw">   
+	<br/>
+	<!-- <div class="Nsb_r_title"><a href="/jsxsd/framework/main.jsp"">首页</a> » 考试成绩 » 课程成绩查询 » 查询列表</div>
+	<input type="button" id="btn_back" class="button" value="返 回" onclick="window.location.href='/jsxsd/kscj/cjcx_query';"/> -->
+	
+	<br />
+	
+	查询条件：全部 
+
+
+
+
+
+				
+	<table id="dataList" width="100%" border="0" cellspacing="0" cellpadding="0" class="Nsb_r_list Nsb_table">
+		<tr>
+			<th class="Nsb_r_list_thb" style="width: 35px;">序号</th>
+			<th class="Nsb_r_list_thb" style="width: 140px;">开课学期</th>
+			<th class="Nsb_r_list_thb" style="width: 110px;">课程编号</th>
+			<th class="Nsb_r_list_thb">课程名称</th>
+			<th class="Nsb_r_list_thb" style="width: 60px;">成绩</th>
+			<th class="Nsb_r_list_thb" style="width: 50px;">学分</th>
+			<th class="Nsb_r_list_thb" style="width: 50px;">总学时</th>
+			<th class="Nsb_r_list_thb" style="width: 50px;">绩点</th>
+			<th class="Nsb_r_list_thb" style="width: 60px;">考核方式</th>
+			<th class="Nsb_r_list_thb" style="width: 60px;">课程属性</th>
+			<th class="Nsb_r_list_thb" style="width: 120px;">课程性质</th>
+		</tr>
+		
+		<tr>
+			<td>1</td>
+			<td>2022-2023-1</td>
+			<td align="left">00051532</td>
+			<td align="left">中国古建筑文化与鉴赏（网络2）</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001347&zcj=83',700,500)">83</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>28</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>公选</td>
+			<td>通识教育选修课</td>
+		</tr>
+		
+		<tr>
+			<td>2</td>
+			<td>2022-2023-1</td>
+			<td align="left">00051572</td>
+			<td align="left">感悟考古（网络2）</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001290&zcj=83',700,500)">83</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>公选</td>
+			<td>通识教育选修课</td>
+		</tr>
+		
+		<tr>
+			<td>3</td>
+			<td>2022-2023-1</td>
+			<td align="left">03015203</td>
+			<td align="left">管理学原理</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001432&zcj=63',700,500)">63</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>4</td>
+			<td>2022-2023-1</td>
+			<td align="left">06021111</td>
+			<td align="left">大学英语(一)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001457&zcj=74',700,500)">74</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>公共基础必修课</td>
+		</tr>
+		
+		<tr>
+			<td>5</td>
+			<td>2022-2023-1</td>
+			<td align="left">07020353</td>
+			<td align="left">画法几何与建筑制图</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001469&zcj=70',700,500)">70</a></td></td>
+				     
+				 
+			
+			
+			<td>2.5</td>
+			<td>40</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>6</td>
+			<td>2022-2023-1</td>
+			<td align="left">09010062</td>
+			<td align="left">党史</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001501&zcj=70',700,500)">70</a></td></td>
+				     
+				 
+			
+			
+			<td>0.5</td>
+			<td>8</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>公选</td>
+			<td>通识教育选修课</td>
+		</tr>
+		
+		<tr>
+			<td>7</td>
+			<td>2022-2023-1</td>
+			<td align="left">09015141</td>
+			<td align="left">思想道德与法治</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001451&zcj=85',700,500)">85</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>思想政治课</td>
+		</tr>
+		
+		<tr>
+			<td>8</td>
+			<td>2022-2023-1</td>
+			<td align="left">11005461</td>
+			<td align="left">大学体育(一)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001579&zcj=92',700,500)">92</a></td></td>
+				     
+				 
+			
+			
+			<td>1</td>
+			<td>36</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>通识教育必修课</td>
+		</tr>
+		
+		<tr>
+			<td>9</td>
+			<td>2022-2023-1</td>
+			<td align="left">12020091</td>
+			<td align="left">军事理论</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001438&zcj=89',700,500)">89</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>36</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>通识教育必修课</td>
+		</tr>
+		
+		<tr>
+			<td>10</td>
+			<td>2022-2023-1</td>
+			<td align="left">12020116</td>
+			<td align="left">军事训练</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001140&zcj=88',700,500)">88</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>2</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>11</td>
+			<td>2022-2023-2</td>
+			<td align="left">00050172</td>
+			<td align="left">关爱生命—急救与自救技能（网络2）</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001663&zcj=84',700,500)">84</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>28</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>公选</td>
+			<td>通识教育选修课</td>
+		</tr>
+		
+		<tr>
+			<td>12</td>
+			<td>2022-2023-2</td>
+			<td align="left">04030066</td>
+			<td align="left">专业学习导论（含专业认知实习）</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001613&zcj=优',700,500)">优</a></td></td>
+				     
+				 
+			
+			
+			<td>0.5</td>
+			<td>1</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>13</td>
+			<td>2022-2023-2</td>
+			<td align="left">04030093</td>
+			<td align="left">数据结构</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001427&zcj=71',700,500)">71</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>14</td>
+			<td>2022-2023-2</td>
+			<td align="left">04060033</td>
+			<td align="left">大学物理</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001419&zcj=85',700,500)">85</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>15</td>
+			<td>2022-2023-2</td>
+			<td align="left">06021051</td>
+			<td align="left">大学英语(二)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001435&zcj=81',700,500)">81</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>公共基础必修课</td>
+		</tr>
+		
+		<tr>
+			<td>16</td>
+			<td>2022-2023-2</td>
+			<td align="left">08013081</td>
+			<td align="left">大学语文</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001395&zcj=88',700,500)">88</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>公共基础必修课</td>
+		</tr>
+		
+		<tr>
+			<td>17</td>
+			<td>2022-2023-2</td>
+			<td align="left">09015271</td>
+			<td align="left">中国近现代史纲要</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001411&zcj=75',700,500)">75</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>思想政治课</td>
+		</tr>
+		
+		<tr>
+			<td>18</td>
+			<td>2022-2023-2</td>
+			<td align="left">10023561</td>
+			<td align="left">高等数学Ⅰ(下)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001443&zcj=65',700,500)">65</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>公共基础必修课</td>
+		</tr>
+		
+		<tr>
+			<td>19</td>
+			<td>2022-2023-2</td>
+			<td align="left">11005431</td>
+			<td align="left">大学体育(二)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001908&zcj=78',700,500)">78</a></td></td>
+				     
+				 
+			
+			
+			<td>1</td>
+			<td>36</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>通识教育必修课</td>
+		</tr>
+		
+		<tr>
+			<td>20</td>
+			<td>2022-2023-2</td>
+			<td align="left">12010011</td>
+			<td align="left">大学生心理健康教育(二)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001403&zcj=81',700,500)">81</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>16</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>必修</td>
+			<td>通识教育必修课</td>
+		</tr>
+		
+		<tr>
+			<td>21</td>
+			<td>2022-2023-2</td>
+			<td align="left">23023311</td>
+			<td align="left">职业生涯与发展规划</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=2022000001387&zcj=85',700,500)">85</a></td></td>
+				     
+				 
+			
+			
+			<td>1</td>
+			<td>18</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>必修</td>
+			<td>通识教育必修课</td>
+		</tr>
+		
+		<tr>
+			<td>22</td>
+			<td>2023-2024-1</td>
+			<td align="left">02033535</td>
+			<td align="left">金融学</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320241006458&zcj=95',700,500)">95</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>任选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>23</td>
+			<td>2023-2024-1</td>
+			<td align="left">04030014</td>
+			<td align="left">JAVA程序设计</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320241005410&zcj=89',700,500)">89</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>专业必修课</td>
+		</tr>
+		
+		<tr>
+			<td>24</td>
+			<td>2023-2024-1</td>
+			<td align="left">04030033</td>
+			<td align="left">计算机导论</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=&zcj=85',700,500)">85</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td></td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>25</td>
+			<td>2023-2024-1</td>
+			<td align="left">04030043</td>
+			<td align="left">离散数学</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320241005404&zcj=76',700,500)">76</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>26</td>
+			<td>2023-2024-1</td>
+			<td align="left">04031903</td>
+			<td align="left">计算机网络</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320241005414&zcj=82',700,500)">82</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>27</td>
+			<td>2023-2024-1</td>
+			<td align="left">04035483</td>
+			<td align="left">高级语言程序设计</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320241009765&zcj=88',700,500)">88</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>28</td>
+			<td>2023-2024-1</td>
+			<td align="left">04051933</td>
+			<td align="left">Python语言程序设计</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320241005412&zcj=95',700,500)">95</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>29</td>
+			<td>2023-2024-1</td>
+			<td align="left">08033282</td>
+			<td align="left">音乐鉴赏</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320241000301&zcj=81',700,500)">81</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>公选</td>
+			<td>通识教育选修课</td>
+		</tr>
+		
+		<tr>
+			<td>30</td>
+			<td>2023-2024-1</td>
+			<td align="left">09025331</td>
+			<td align="left">马克思主义基本原理</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320241005406&zcj=74',700,500)">74</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>思想政治课</td>
+		</tr>
+		
+		<tr>
+			<td>31</td>
+			<td>2023-2024-1</td>
+			<td align="left">10023551</td>
+			<td align="left">高等数学Ⅰ(上)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=&zcj=71',700,500)">71</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td></td>
+			<td>必修</td>
+			<td>公共基础必修课</td>
+		</tr>
+		
+		<tr>
+			<td>32</td>
+			<td>2023-2024-1</td>
+			<td align="left">10023793</td>
+			<td align="left">线性代数A</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320241005408&zcj=87',700,500)">87</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>33</td>
+			<td>2023-2024-2</td>
+			<td align="left">04010525</td>
+			<td align="left">excel财经数据分析</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005451&zcj=97',700,500)">97</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>任选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>34</td>
+			<td>2023-2024-2</td>
+			<td align="left">04011165</td>
+			<td align="left">数据分析工具实务</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005441&zcj=74',700,500)">74</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>限选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>35</td>
+			<td>2023-2024-2</td>
+			<td align="left">04030024</td>
+			<td align="left">数据库原理</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005455&zcj=89',700,500)">89</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>专业必修课</td>
+		</tr>
+		
+		<tr>
+			<td>36</td>
+			<td>2023-2024-2</td>
+			<td align="left">04030025</td>
+			<td align="left">Linux操作系统</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005443&zcj=76',700,500)">76</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>限选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>37</td>
+			<td>2023-2024-2</td>
+			<td align="left">04030215</td>
+			<td align="left">数字电路与逻辑设计</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005461&zcj=79',700,500)">79</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>限选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>38</td>
+			<td>2023-2024-2</td>
+			<td align="left">04031904</td>
+			<td align="left">算法设计与分析</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005438&zcj=86',700,500)">86</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>专业必修课</td>
+		</tr>
+		
+		<tr>
+			<td>39</td>
+			<td>2023-2024-2</td>
+			<td align="left">0403S015</td>
+			<td align="left">信息技术前沿</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242010043&zcj=87',700,500)">87</a></td></td>
+				     
+				 
+			
+			
+			<td>1</td>
+			<td>16</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>任选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>40</td>
+			<td>2023-2024-2</td>
+			<td align="left">04050055</td>
+			<td align="left">数据科学专业英语</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242008158&zcj=93',700,500)">93</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>限选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>41</td>
+			<td>2023-2024-2</td>
+			<td align="left">04050534</td>
+			<td align="left">数据可视化</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005457&zcj=94',700,500)">94</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>专业必修课</td>
+		</tr>
+		
+		<tr>
+			<td>42</td>
+			<td>2023-2024-2</td>
+			<td align="left">08020022</td>
+			<td align="left">手机摄影</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242004054&zcj=87',700,500)">87</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>公选</td>
+			<td>通识教育选修课</td>
+		</tr>
+		
+		<tr>
+			<td>43</td>
+			<td>2023-2024-2</td>
+			<td align="left">09020091</td>
+			<td align="left">毛泽东思想和中国特色社会主义理论体系概论</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005453&zcj=88',700,500)">88</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>思想政治课</td>
+		</tr>
+		
+		<tr>
+			<td>44</td>
+			<td>2023-2024-2</td>
+			<td align="left">10023533</td>
+			<td align="left">概率论与数理统计A</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005459&zcj=75',700,500)">75</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>45</td>
+			<td>2023-2024-2</td>
+			<td align="left">11005451</td>
+			<td align="left">大学体育(四)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242007360&zcj=83',700,500)">83</a></td></td>
+				     
+				 
+			
+			
+			<td>1</td>
+			<td>18</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>通识教育必修课</td>
+		</tr>
+		
+		<tr>
+			<td>46</td>
+			<td>2023-2024-2</td>
+			<td align="left">17010022</td>
+			<td align="left">大学生安全知识教育（二）</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242000056&zcj=96',700,500)">96</a></td></td>
+				     
+				 
+			
+			
+			<td>1</td>
+			<td>8</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>公选</td>
+			<td>通识教育选修课</td>
+		</tr>
+		
+		<tr>
+			<td>47</td>
+			<td>2023-2024-2</td>
+			<td align="left">23013321</td>
+			<td align="left">创业基础</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202320242005439&zcj=84',700,500)">84</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>必修</td>
+			<td>通识教育必修课</td>
+		</tr>
+		
+		<tr>
+			<td>48</td>
+			<td>2024-2025-1</td>
+			<td align="left">03046823</td>
+			<td align="left">运筹学</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420251002882&zcj=89',700,500)">89</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>49</td>
+			<td>2024-2025-1</td>
+			<td align="left">04011185</td>
+			<td align="left">云计算基础</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420251002886&zcj=84',700,500)">84</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>限选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>50</td>
+			<td>2024-2025-1</td>
+			<td align="left">04030125</td>
+			<td align="left">移动互联网</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420251002884&zcj=93',700,500)">93</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>限选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>51</td>
+			<td>2024-2025-1</td>
+			<td align="left">04030794</td>
+			<td align="left">网络程序开发</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420251002898&zcj=95',700,500)">95</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>专业必修课</td>
+		</tr>
+		
+		<tr>
+			<td>52</td>
+			<td>2024-2025-1</td>
+			<td align="left">04031813</td>
+			<td align="left">计算机组成原理</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420251002896&zcj=88',700,500)">88</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>53</td>
+			<td>2024-2025-1</td>
+			<td align="left">04051923</td>
+			<td align="left">数据分析与挖掘</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420251002900&zcj=84',700,500)">84</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>64</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>学科（专业）基础课</td>
+		</tr>
+		
+		<tr>
+			<td>54</td>
+			<td>2024-2025-1</td>
+			<td align="left">04060085</td>
+			<td align="left">知识图谱</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420251002892&zcj=84',700,500)">84</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>任选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>55</td>
+			<td>2024-2025-1</td>
+			<td align="left">09050011</td>
+			<td align="left">习近平新时代中国特色社会主义思想概论</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420251002894&zcj=80',700,500)">80</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>思想政治课</td>
+		</tr>
+		
+		<tr>
+			<td>56</td>
+			<td>2024-2025-2</td>
+			<td align="left">04031504</td>
+			<td align="left">操作系统原理</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420252001545&zcj=80',700,500)">80</a></td></td>
+				     
+				 
+			
+			
+			<td>3</td>
+			<td>48</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>专业必修课</td>
+		</tr>
+		
+		<tr>
+			<td>57</td>
+			<td>2024-2025-2</td>
+			<td align="left">04050026</td>
+			<td align="left">学年论文</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420252005537&zcj=良',700,500)">良</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>4</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>58</td>
+			<td>2024-2025-2</td>
+			<td align="left">04050046</td>
+			<td align="left">专业实习</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420252005533&zcj=良',700,500)">良</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>4</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>59</td>
+			<td>2024-2025-2</td>
+			<td align="left">04051926</td>
+			<td align="left">财经大数据工程综合训练 (Ⅰ)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420252005535&zcj=95',700,500)">95</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>60</td>
+			<td>2024-2025-2</td>
+			<td align="left">04080075</td>
+			<td align="left">人工智能</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420252001531&zcj=92',700,500)">92</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>限选</td>
+			<td>专业选修课</td>
+		</tr>
+		
+		<tr>
+			<td>61</td>
+			<td>2024-2025-2</td>
+			<td align="left">11005511</td>
+			<td align="left">大学体育(六)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420252008211&zcj=75',700,500)">75</a></td></td>
+				     
+				 
+			
+			
+			<td>1</td>
+			<td>18</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考试</td>
+			<td>必修</td>
+			<td>通识教育必修课</td>
+		</tr>
+		
+		<tr>
+			<td>62</td>
+			<td>2024-2025-2</td>
+			<td align="left">1301001C</td>
+			<td align="left">创新创业、社会实践活动</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=&zcj=',700,500)"></a></td></td>
+				     
+				 
+			
+			
+			<td>6.5</td>
+			<td></td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td>63</td>
+			<td>2024-2025-2</td>
+			<td align="left">23023336</td>
+			<td align="left">大学生就业指导</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202420252001529&zcj=84',700,500)">84</a></td></td>
+				     
+				 
+			
+			
+			<td>1</td>
+			<td>20</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>64</td>
+			<td>2025-2026-1</td>
+			<td align="left">04051936</td>
+			<td align="left">财经大数据工程综合训练 (Ⅱ)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202520261004294&zcj=96',700,500)">96</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>65</td>
+			<td>2025-2026-1</td>
+			<td align="left">12032256</td>
+			<td align="left">劳动教育</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202520261004292&zcj=优',700,500)">优</a></td></td>
+				     
+				 
+			
+			
+			<td>1</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>66</td>
+			<td>2025-2026-2</td>
+			<td align="left">04050006</td>
+			<td align="left">毕业实习</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202520262009369&zcj=良',700,500)">良</a></td></td>
+				     
+				 
+			
+			
+			<td>4</td>
+			<td>8</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>67</td>
+			<td>2025-2026-2</td>
+			<td align="left">04050036</td>
+			<td align="left">毕业论文（设计）</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=&zcj=中',700,500)">中</a></td></td>
+				     
+				 
+			
+			
+			<td>8</td>
+			<td>16</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>实践</td>
+			<td>集中实践课</td>
+		</tr>
+		
+		<tr>
+			<td>68</td>
+			<td>2025-2026-2</td>
+			<td align="left">09015281</td>
+			<td align="left">形势与政策(八)</td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" "><a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=7C7029F4EC234C9FBC3B51793A813465&jx0404id=202520262003991&zcj=89.6',700,500)">89.6</a></td></td>
+				     
+				 
+			
+			
+			<td>2</td>
+			<td>8</td>
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td></td>
+				     
+				 
+			
+			
+			<td>考查</td>
+			<td>必修</td>
+			<td>思想政治课</td>
+		</tr>
+		
+		
+	</table>
+</div>
+<br />
+<!-- 
+<div id="Footer1_divCopyright" class="Nsb_pw" style="display:;">
+  <div class="Nsb_rights">Copyright (C) 湖南强智科技发展有限公司  All Rights Reserved 湘ICP 备12010071号</div>
+</div> -->
+<script language="javascript">
+
+//合并学年学期列
+//jQuery("#dataList").rowspan(1);
+</script>
+<script language="javascript">
+loadjs();
+function loadjs(){
+if( ''!=''){
+alert('');
+}
+}
+</script>
+</body>
+</html>

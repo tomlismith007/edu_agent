@@ -1,0 +1,33 @@
+node_modules/
+dist/
+.env
+cache/
+*.log
+.DS_Store
+
+# 调试产物：含账号/加密口令等敏感信息的抓包记录，禁止提交
+module-request.txt
+replica-request.txt
+server.err.log
+
+# 历史调试脚本与开发记录：含学号/姓名等个人隐私，仅本地保留
+原代码/
+
+# 内部工作文档：审查/排查记录，仅本地保留
+edu_agent_审查报告_*.md
+edu_agent_深度审查报告.md
+edu_agent_Agent规范审查报告_*.md
+dev启动故障排查报告_*.md
+审查日志-*.md
+培养方案_*.md
+
+# AI 工具工作区数据与临时产物
+.workbuddy/
+.claude/
+.agents/
+.mimosa/
+.zcode/
+_sk_tmp.md
+audit-*.jpg
+audit-*.png
+vite-audit-*.txt

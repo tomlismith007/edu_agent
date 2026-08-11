@@ -1,0 +1,1163 @@
+<html xmlns="http://www.w3.org/1999/xhtml" data-immersive-translate-page-theme="light"><head id="headerid1">
+	<base target="_self">
+	<title>学生信息管理_学习完成情况查看</title>	
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="keywords" content="湖南强智科技教务系统">
+	<meta http-equiv="description" content="湖南强智科技教务系统">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+<script type="text/javascript" src="/jsxsd/js/jquery-min.js" language="javascript"></script>
+<script type="text/javascript" src="/jsxsd/js/common.js" language="javascript"></script>
+<script type="text/javascript" src="/jsxsd/js/iepngfix_tilebg.js" language="javascript"></script>
+<link href="/jsxsd/framework/images/common.css" rel="stylesheet" type="text/css">
+<link href="/jsxsd/framework/images/blue.css" rel="stylesheet" type="text/css" id="link_theme">
+<link href="/jsxsd/framework/images/workstation.css" rel="stylesheet" type="text/css"> 
+<style type="text/css">
+      @font-face {
+          font-family: "element-icons";
+          src: url('chrome-extension://aaobabmlkdkmdeokofgnijgegajffena/fonts/element-icons.woff') format('woff'),
+          url('chrome-extension://aaobabmlkdkmdeokofgnijgegajffena/fonts/element-icons.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+      }
+  </style></head>
+<body><iframe id="notSession" name="notSession" style="display: none;" src=""></iframe>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	window.setInterval(function(){
+		 document.getElementById("notSession").src = "/jsxsd/framework/blankPage.jsp";
+	 }, 1000 * 60 * 10);
+});
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+function opengld(){
+	if("1"!='2'){
+		alert("非教师不能进行切换");
+		return;
+	}
+	var height = $(window).height();
+	var width = $(window).width();
+	if(parseInt(height)<750){
+		document.getElementById("view").value = "1";
+	}else{
+		document.getElementById("view").value = "0";
+	}
+	//取得userid
+	var userid = '2022000001';
+	document.getElementById("useraccount").value = userid;
+	$.ajax({
+				cache: true,
+				type: "POST",
+				url:"/jsxsd/system/loginupdtoGld.do",
+				dataType: "json",
+				success: function(data) {
+					if(data.val=="1"){
+						document.getElementById("upd").value = data.upd;
+						document.getElementById("time").value = data.time;
+						document.getElementById("loginForm1").submit();
+
+					}else{
+						alert("异常导致不能进行切换");
+						return;
+					}
+				}
+			});
+}
+function LogoutGLD(){
+	var userid = '2022000001';
+	document.getElementById("loginForm1").action = "http://jiaowu2.hufe.edu.cn//Logon.do?method=logoutFromJsxsd";
+	document.getElementById("useraccount").value = userid;
+	document.getElementById("loginForm1").submit();
+}	
+
+</script>	
+<div class="Nsb_pw">
+  <div class="Nsb_top">
+  	<form action="http://jiaowu2.hufe.edu.cn//Logon.do?method=logonFromJsxsd" method="post" id="loginForm1" name="loginForm1">
+		<input type="hidden" id="view" name="view">
+		<input type="hidden" id="useraccount" name="useraccount">
+		<input type="hidden" id="ticket" name="ticket">
+		<input type="hidden" id="upd" name="upd" value="">
+		<input type="hidden" id="time" name="time" value="">
+	</form>
+    <div class="Nsb_top_logo"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td height="75" valign="middle"><img style="display:;" id="imgLogo" src="/jsxsd/framework/images/index_logo.gif"></td></tr></tbody></table></div>
+    <div class="Nsb_top_menu">        
+        <div id="Top1_divLoginName" class="Nsb_top_menu_nc" style="color: #000000;">测试学生(2022000001)</div>
+       
+        <ul>
+            <li><a id="TopUserSetting" info="个人设置" href="#" class="Nsb_top_menu_id"><img src="/jsxsd/framework/images/Nsb_top_p1.jpg" id="Top1_imgTopSmallUserPhoto"></a></li>
+            <span></span>
+                          
+            
+            <li><a id="TopTheme" info="切换主题" href="#" class="Nsb_top_menu_style" onclick="changeDisplay('divTopTheme')"></a></li>
+            <span id="Top1_LBackManageSpliter"></span>
+            <span id="Top1_LExitSpliter"></span>
+            <li id="Top1_LBackManage">
+            	<a info="个人设置" href="/jsxsd/grsz/grsz_xggrxx.do?Ves632DSdyV=NEW_XSD_WDZM" class="Nsb_top_menu_options"></a>
+            </li>
+             
+        	 	<li id="Top1_LExit"><a info="退出" href="javascript:Logout('/jsxsd');" class="Nsb_top_menu_exit"></a></li>
+        	 
+            
+            
+        </ul>            
+     </div>   
+     <div id="divTopTheme" group="topDiv" style="display:none;z-index:10000">      
+        <div class="Nsb_top_c Nsb_top_c3">
+          <ul>
+            <li id="theme_blue" theme="blue" index="1" class="Nsb_top_c3_11" onclick="javascript:changeTheme('/jsxsd','blue',this);"></li>
+            <li id="theme_green" theme="green" index="2" class="Nsb_top_c3_2" onclick="javascript:changeTheme('/jsxsd','green',this);"></li>
+            <li id="theme_orange" theme="orange" index="3" class="Nsb_top_c3_3" onclick="javascript:changeTheme('/jsxsd','orange',this);"></li>
+            <li id="theme_red" theme="red" index="4" class="Nsb_top_c3_4" onclick="javascript:changeTheme('/jsxsd','red',this);"></li>
+            <li id="theme_purple" theme="purple" index="5" class="Nsb_top_c3_5" onclick="javascript:changeTheme('/jsxsd','purple',this);"></li>
+            <li id="theme_gray" theme="gray" index="6" class="Nsb_top_c3_6" onclick="javascript:changeTheme('/jsxsd','gray',this);"></li>
+          </ul>
+        </div>
+     </div>
+   </div>
+</div>
+<div class="Nsb_menu_pw">
+  <div class="Nsb_pw">
+    <div id="divFirstMenuClass" class="Nsb_menu menu_cn">
+      <ul>         
+         <li title="首页">
+         	<a class="Nsb_menu_li_h" id="homepage" href="/jsxsd/framework/xsMain.jsp"><span></span></a>
+         </li>
+         
+         	<li title="我的桌面">
+         		<a id="calender_user_schedule" href="/jsxsd/jxzl/jxzl_query?Ves632DSdyV=NEW_XSD_WDZM">我的桌面</a>
+         	</li>
+         
+         	<li title="学籍成绩">
+         		<a id="calender_user_schedule" href="/jsxsd/xsxj/xjxxgl.do?Ves632DSdyV=NEW_XSD_XJCJ">学籍成绩</a>
+         	</li>
+         
+         	<li title="培养管理">
+         		<a id="calender_user_schedule" href="/jsxsd/pyfa/topyfamx?Ves632DSdyV=NEW_XSD_PYGL">培养管理</a>
+         	</li>
+         
+         	<li title="考试报名">
+         		<a id="calender_user_schedule" href="/jsxsd/xsks/xsksap_query?Ves632DSdyV=NEW_XSD_KSBM">考试报名</a>
+         	</li>
+         
+         	<li title="实践环节">
+         		<a id="calender_user_schedule" href="/jsxsd/view/syjx/syyy_find.jsp?Ves632DSdyV=NEW_XSD_SJHJ">实践环节</a>
+         	</li>
+         
+         	<li title="教学评价">
+         		<a id="calender_user_schedule" href="/jsxsd/xspj/xspj_find.do?Ves632DSdyV=NEW_XSD_JXPJ">教学评价</a>
+         	</li>
+         
+         	<li title="学业指导">
+         		<a id="calender_user_schedule" href="/jsxsd/view/xyzd/xs_xmtb_find.jsp?Ves632DSdyV=NEW_XSD_XYZD">学业指导</a>
+         	</li>
+         
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="Nsb_pw">   
+  	
+
+
+
+
+
+
+  
+<div id="LeftMenu1_divChildMenu" class="Nsb_layout_l Nsb_l_list" style="height: 782px">
+	<div class="Nsb_l_list_top"></div>
+	
+			<h4 class="exam_user_exam">学籍管理</h4>
+			<ul>			
+	
+				<li><a href="/jsxsd/grxx/xsxx">学籍卡片</a></li>
+	
+				<li><a class="Nsb_l_list_now" href="/jsxsd/xxwcqk/xxwcqk_byxfqkcx.do">学习过程情况查询</a></li>
+	
+				<li><a href="/jsxsd/xsxj/xjxxgl.do">学籍信息管理</a></li>
+	
+				<li><a href="/jsxsd/xsxj/xsyjxx.do">学籍预警查询</a></li>
+	
+				<li><a href="/jsxsd/xsxj/xsydxx.do">学籍异动信息</a></li>
+	
+				<li><a href="/jsxsd/xsxj/toQueryZyfl.do">专业分流</a></li>
+	
+				<li><a href="/jsxsd/xsxj/toQueryfxfl.do">方向分流</a></li>
+	
+				<li><a href="/jsxsd/view/xsxj/xsdygl.jsp">在读证明打印</a></li>
+	
+			</ul>
+	
+			<h4 class="exam_user_exam">我的成绩</h4>
+			<ul>			
+	
+				<li><a href="/jsxsd/kscj/cjcx_frm">课程成绩查询</a></li>
+	
+				<li><a href="/jsxsd/kscj/djkscj_list">等级考试成绩</a></li>
+	
+				<li><a href="/jsxsd/kscj/cjrd_list">成绩认定</a></li>
+	
+				<li><a href="/jsxsd/jsjx/xs_jsdbcj_list">体能测试成绩</a></li>
+	
+				<li><a href="/jsxsd/xsjsjx/hksq_query">体能测试缓考</a></li>
+	
+			</ul>
+	
+			<h4 class="exam_user_exam">延后毕业管理</h4>
+			<ul>			
+	
+				<li><a href="/jsxsd/tsbygl/yhby_sq">延后毕业申请</a></li>
+	
+			</ul>
+	
+			<h4 class="exam_user_exam">提前毕业管理</h4>
+			<ul>			
+	
+				<li><a href="/jsxsd/tsbygl/tqby_sq">提前毕业申请</a></li>
+	
+			</ul>
+	
+			<h4 class="exam_user_exam">毕业信息管理</h4>
+			<ul>			
+	
+				<li><a href="/jsxsd/tsbygl/byxxhd">毕业信息核对</a></li>
+	
+				<li><a href="/jsxsd/tsbygl/byjgcx">毕业结果查询</a></li>
+	
+			</ul>
+	
+</div> 
+ 	<div class="Nsb_layout_r">
+ 		<div class="Nsb_r_title">
+	 		<a href="/jsxsd/framework/main.jsp">首页</a>&gt;&gt;学籍信息&gt;&gt;学习过程情况查询
+		</div>
+		<!--  -->
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="Nsb_r_list Nsb_table" id="t">
+            <tbody><tr>
+            	<th class="Nsb_r_list_thb" scope="col"></th>
+				<th class="Nsb_r_list_thb" scope="col">非选课组课程</th>
+				 
+				<th class="Nsb_r_list_thb" scope="col">公共选修课</th>
+				
+					<th class="Nsb_r_list_thb" scope="col">毕业结论</th>
+				
+				
+            </tr>
+            <tr>
+            	<td class="Nsb_r_list_thb" scope="col">应修学分</td>
+            	<td class="Nsb_r_list_thb yxxf" scope="col">0.0</td>
+            	 
+				<td class="Nsb_r_list_thb yxxf" scope="col">0.0</td>
+				
+					<td class="Nsb_r_list_thb" rowspan="2" scope="col">毕业</td>
+				
+            </tr>
+            <tr>
+            	<td class="Nsb_r_list_thb" scope="col">已修学分</td>
+            	<td class="Nsb_r_list_thb yhxf" scope="col">153.0</td>
+            	 
+				<td class="Nsb_r_list_thb yhxf" scope="col">11.5</td>
+            </tr>
+        </tbody></table>
+		<!--  -->
+		<br>
+        <a style="color: red">备注：已修学分统计学习过程所有已修读的学分（含重修），用于学分制结算，如需要查询已获学分，请查看“课程成绩”模块.</a>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="Nsb_r_list Nsb_table" id="t1">
+           	<tbody><tr>
+            		<td colspan="7" align="left">非选课组修读情况： </td>         
+            	</tr>
+            <tr>
+            	<th class="Nsb_r_list_thb" scope="col">序号</th>
+				<th class="Nsb_r_list_thb" scope="col">学年学期</th>
+				<th class="Nsb_r_list_thb" scope="col">课程编号</th>
+				<th class="Nsb_r_list_thb" scope="col">课程名称</th>
+				<th class="Nsb_r_list_thb" scope="col">学分</th>
+				<!-- <th class="Nsb_r_list_thb" scope="col">修读状态</th> -->
+				<th class="Nsb_r_list_thb" scope="col">成绩</th>
+				<th class="Nsb_r_list_thb" scope="col">获学分状态</th>
+            </tr>
+            
+                                 
+	            <tr>
+	            	<td>1</td>
+	                <td>2022-2023-1</td>
+					<td>04035483</td>
+					<td>高级语言程序设计</td>
+					<td style="">4</td>
+					<td>88</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>2</td>
+	                <td>2022-2023-1</td>
+					<td>06021111</td>
+					<td>大学英语(一)</td>
+					<td style="">3</td>
+					<td>74</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>3</td>
+	                <td>2022-2023-1</td>
+					<td>09015141</td>
+					<td>思想道德与法治</td>
+					<td style="">3</td>
+					<td>85</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>4</td>
+	                <td>2022-2023-1</td>
+					<td>09015251</td>
+					<td>形势与政策(一)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>5</td>
+	                <td>2022-2023-1</td>
+					<td>11005461</td>
+					<td>大学体育(一)</td>
+					<td style="">1</td>
+					<td>92</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>6</td>
+	                <td>2022-2023-1</td>
+					<td>12010021</td>
+					<td>大学生心理健康教育(一)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>7</td>
+	                <td>2022-2023-1</td>
+					<td>12020091</td>
+					<td>军事理论</td>
+					<td style="">2</td>
+					<td>89</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>8</td>
+	                <td>2022-2023-1</td>
+					<td>12020116</td>
+					<td>军事训练</td>
+					<td style="">2</td>
+					<td>88</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>9</td>
+	                <td>2022-2023-1</td>
+					<td>12032256</td>
+					<td>劳动教育</td>
+					<td style="">1</td>
+					<td>优</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>10</td>
+	                <td>2022-2023-2</td>
+					<td>04030093</td>
+					<td>数据结构</td>
+					<td style="">4</td>
+					<td>71</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>11</td>
+	                <td>2022-2023-2</td>
+					<td>04060033</td>
+					<td>大学物理</td>
+					<td style="">3</td>
+					<td>85</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>12</td>
+	                <td>2022-2023-2</td>
+					<td>06021051</td>
+					<td>大学英语(二)</td>
+					<td style="">4</td>
+					<td>81</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>13</td>
+	                <td>2022-2023-2</td>
+					<td>08013081</td>
+					<td>大学语文</td>
+					<td style="">2</td>
+					<td>88</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>14</td>
+	                <td>2022-2023-2</td>
+					<td>09015221</td>
+					<td>形势与政策(二)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>15</td>
+	                <td>2022-2023-2</td>
+					<td>09015271</td>
+					<td>中国近现代史纲要</td>
+					<td style="">3</td>
+					<td>75</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>16</td>
+	                <td>2022-2023-2</td>
+					<td>10023561</td>
+					<td>高等数学Ⅰ(下)</td>
+					<td style="">4</td>
+					<td>65</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>17</td>
+	                <td>2022-2023-2</td>
+					<td>11005431</td>
+					<td>大学体育(二)</td>
+					<td style="">1</td>
+					<td>78</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>18</td>
+	                <td>2022-2023-2</td>
+					<td>12010011</td>
+					<td>大学生心理健康教育(二)</td>
+					<td style="">2</td>
+					<td>81</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>19</td>
+	                <td>2022-2023-2</td>
+					<td>12032256</td>
+					<td>劳动教育</td>
+					<td style="">1</td>
+					<td>优</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>20</td>
+	                <td>2022-2023-2</td>
+					<td>23023311</td>
+					<td>职业生涯与发展规划</td>
+					<td style="">1</td>
+					<td>85</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>21</td>
+	                <td>2023-2024-1</td>
+					<td>02033535</td>
+					<td>金融学</td>
+					<td style="">2</td>
+					<td>95</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>22</td>
+	                <td>2023-2024-1</td>
+					<td>04030014</td>
+					<td>JAVA程序设计</td>
+					<td style="">4</td>
+					<td>89</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>23</td>
+	                <td>2023-2024-1</td>
+					<td>04030043</td>
+					<td>离散数学</td>
+					<td style="">3</td>
+					<td>76</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>24</td>
+	                <td>2023-2024-1</td>
+					<td>04031903</td>
+					<td>计算机网络</td>
+					<td style="">4</td>
+					<td>82</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>25</td>
+	                <td>2023-2024-1</td>
+					<td>04051933</td>
+					<td>Python语言程序设计</td>
+					<td style="">4</td>
+					<td>95</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>26</td>
+	                <td>2023-2024-1</td>
+					<td>09015231</td>
+					<td>形势与政策(三)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>27</td>
+	                <td>2023-2024-1</td>
+					<td>09025331</td>
+					<td>马克思主义基本原理</td>
+					<td style="">3</td>
+					<td>74</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>28</td>
+	                <td>2023-2024-1</td>
+					<td>10023793</td>
+					<td>线性代数A</td>
+					<td style="">3</td>
+					<td>87</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>29</td>
+	                <td>2023-2024-1</td>
+					<td>11005441</td>
+					<td>大学体育(三)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>30</td>
+	                <td>2023-2024-1</td>
+					<td>12032256</td>
+					<td>劳动教育</td>
+					<td style="">1</td>
+					<td>优</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>31</td>
+	                <td>2023-2024-2</td>
+					<td>04010525</td>
+					<td>excel财经数据分析</td>
+					<td style="">2</td>
+					<td>97</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>32</td>
+	                <td>2023-2024-2</td>
+					<td>04011165</td>
+					<td>数据分析工具实务</td>
+					<td style="">2</td>
+					<td>74</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>33</td>
+	                <td>2023-2024-2</td>
+					<td>04030024</td>
+					<td>数据库原理</td>
+					<td style="">4</td>
+					<td>89</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>34</td>
+	                <td>2023-2024-2</td>
+					<td>04030025</td>
+					<td>Linux操作系统</td>
+					<td style="">2</td>
+					<td>76</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>35</td>
+	                <td>2023-2024-2</td>
+					<td>04030215</td>
+					<td>数字电路与逻辑设计</td>
+					<td style="">4</td>
+					<td>79</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>36</td>
+	                <td>2023-2024-2</td>
+					<td>04031904</td>
+					<td>算法设计与分析</td>
+					<td style="">2</td>
+					<td>86</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>37</td>
+	                <td>2023-2024-2</td>
+					<td>04050055</td>
+					<td>数据科学专业英语</td>
+					<td style="">2</td>
+					<td>93</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>38</td>
+	                <td>2023-2024-2</td>
+					<td>04050534</td>
+					<td>数据可视化</td>
+					<td style="">4</td>
+					<td>94</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>39</td>
+	                <td>2023-2024-2</td>
+					<td>09015241</td>
+					<td>形势与政策(四)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>40</td>
+	                <td>2023-2024-2</td>
+					<td>09020091</td>
+					<td>毛泽东思想和中国特色社会主义理论体系概论</td>
+					<td style="">3</td>
+					<td>88</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>41</td>
+	                <td>2023-2024-2</td>
+					<td>10023533</td>
+					<td>概率论与数理统计A</td>
+					<td style="">4</td>
+					<td>75</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>42</td>
+	                <td>2023-2024-2</td>
+					<td>11005451</td>
+					<td>大学体育(四)</td>
+					<td style="">1</td>
+					<td>83</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>43</td>
+	                <td>2023-2024-2</td>
+					<td>12032256</td>
+					<td>劳动教育</td>
+					<td style="">1</td>
+					<td>优</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>44</td>
+	                <td>2023-2024-2</td>
+					<td>23013321</td>
+					<td>创业基础</td>
+					<td style="">2</td>
+					<td>84</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>45</td>
+	                <td>2024-2025-1</td>
+					<td>03046823</td>
+					<td>运筹学</td>
+					<td style="">2</td>
+					<td>89</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>46</td>
+	                <td>2024-2025-1</td>
+					<td>04011185</td>
+					<td>云计算基础</td>
+					<td style="">2</td>
+					<td>84</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>47</td>
+	                <td>2024-2025-1</td>
+					<td>04030125</td>
+					<td>移动互联网</td>
+					<td style="">2</td>
+					<td>93</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>48</td>
+	                <td>2024-2025-1</td>
+					<td>04030794</td>
+					<td>网络程序开发</td>
+					<td style="">4</td>
+					<td>95</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>49</td>
+	                <td>2024-2025-1</td>
+					<td>04031813</td>
+					<td>计算机组成原理</td>
+					<td style="">4</td>
+					<td>88</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>50</td>
+	                <td>2024-2025-1</td>
+					<td>04051923</td>
+					<td>数据分析与挖掘</td>
+					<td style="">4</td>
+					<td>84</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>51</td>
+	                <td>2024-2025-1</td>
+					<td>04060085</td>
+					<td>知识图谱</td>
+					<td style="">2</td>
+					<td>84</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>52</td>
+	                <td>2024-2025-1</td>
+					<td>09015201</td>
+					<td>形势与政策(五)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>53</td>
+	                <td>2024-2025-1</td>
+					<td>09050011</td>
+					<td>习近平新时代中国特色社会主义思想概论</td>
+					<td style="">3</td>
+					<td>80</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>54</td>
+	                <td>2024-2025-1</td>
+					<td>11005491</td>
+					<td>大学体育(五)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>55</td>
+	                <td>2024-2025-1</td>
+					<td>12032256</td>
+					<td>劳动教育</td>
+					<td style="">1</td>
+					<td>优</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>56</td>
+	                <td>2024-2025-2</td>
+					<td>04031504</td>
+					<td>操作系统原理</td>
+					<td style="">3</td>
+					<td>80</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>57</td>
+	                <td>2024-2025-2</td>
+					<td>04050026</td>
+					<td>学年论文</td>
+					<td style="">2</td>
+					<td>良</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>58</td>
+	                <td>2024-2025-2</td>
+					<td>04050046</td>
+					<td>专业实习</td>
+					<td style="">2</td>
+					<td>良</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>59</td>
+	                <td>2024-2025-2</td>
+					<td>04051926</td>
+					<td>财经大数据工程综合训练 (Ⅰ)</td>
+					<td style="">2</td>
+					<td>95</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>60</td>
+	                <td>2024-2025-2</td>
+					<td>04080075</td>
+					<td>人工智能</td>
+					<td style="">2</td>
+					<td>92</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>61</td>
+	                <td>2024-2025-2</td>
+					<td>09015211</td>
+					<td>形势与政策(六)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>62</td>
+	                <td>2024-2025-2</td>
+					<td>11005511</td>
+					<td>大学体育(六)</td>
+					<td style="">1</td>
+					<td>75</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>63</td>
+	                <td>2024-2025-2</td>
+					<td>12032256</td>
+					<td>劳动教育</td>
+					<td style="">1</td>
+					<td>优</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>64</td>
+	                <td>2024-2025-2</td>
+					<td>23023336</td>
+					<td>大学生就业指导</td>
+					<td style="">1</td>
+					<td>84</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>65</td>
+	                <td>2025-2026-1</td>
+					<td>04051936</td>
+					<td>财经大数据工程综合训练 (Ⅱ)</td>
+					<td style="">2</td>
+					<td>96</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>66</td>
+	                <td>2025-2026-1</td>
+					<td>09015261</td>
+					<td>形势与政策(七)</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>67</td>
+	                <td>2025-2026-1</td>
+					<td>12032256</td>
+					<td>劳动教育</td>
+					<td style="">1</td>
+					<td>优</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>68</td>
+	                <td>2025-2026-2</td>
+					<td>04050006</td>
+					<td>毕业实习</td>
+					<td style="">4</td>
+					<td>良</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>69</td>
+	                <td>2025-2026-2</td>
+					<td>04050036</td>
+					<td>毕业论文（设计）</td>
+					<td style="">8</td>
+					<td>中</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>70</td>
+	                <td>2025-2026-2</td>
+					<td>09015281</td>
+					<td>形势与政策(八)</td>
+					<td style="">2</td>
+					<td>89.6</td>
+					<td style="">已获</td>
+	            </tr>
+             
+            
+            
+			
+        </tbody></table>	
+        <br>
+	 	
+         
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="Nsb_r_list Nsb_table" id="t3">
+            <tbody><tr>
+            	<td colspan="7" align="left">公共选修课修读情况： </td>         
+            </tr>
+            <tr>
+            	<th class="Nsb_r_list_thb" scope="col">序号</th>
+				<th class="Nsb_r_list_thb" scope="col">学年学期</th>
+				<th class="Nsb_r_list_thb" scope="col">课程编号</th>
+				<th class="Nsb_r_list_thb" scope="col">课程名称</th>
+				<th class="Nsb_r_list_thb" scope="col">学分</th>
+				<th class="Nsb_r_list_thb" scope="col">成绩</th>
+				<th class="Nsb_r_list_thb" scope="col">获学分状态</th>
+            </tr>
+            
+                                 
+	            <tr>
+	            	<td>1</td>
+	                <td>2022-2023-1</td>
+					<td>00051532</td>
+					<td>中国古建筑文化与鉴赏（网络2）</td>
+					<td style="">2</td>
+					<td>83</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>2</td>
+	                <td>2022-2023-1</td>
+					<td>00051572</td>
+					<td>感悟考古（网络2）</td>
+					<td style="">2</td>
+					<td>83</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>3</td>
+	                <td>2022-2023-1</td>
+					<td>09010062</td>
+					<td>党史</td>
+					<td style="">0.5</td>
+					<td>70</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>4</td>
+	                <td>2022-2023-2</td>
+					<td>00050172</td>
+					<td>关爱生命—急救与自救技能（网络2）</td>
+					<td style="">2</td>
+					<td>84</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>5</td>
+	                <td>2023-2024-1</td>
+					<td>08033282</td>
+					<td>音乐鉴赏</td>
+					<td style="">2</td>
+					<td>81</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>6</td>
+	                <td>2023-2024-1</td>
+					<td>17010012</td>
+					<td>大学生安全知识教育（一）</td>
+					<td style="color:red;">0</td>
+					<td></td>
+					<td style="color:red;">已开未获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>7</td>
+	                <td>2023-2024-2</td>
+					<td>08020022</td>
+					<td>手机摄影</td>
+					<td style="">2</td>
+					<td>87</td>
+					<td style="">已获</td>
+	            </tr>
+                                 
+	            <tr>
+	            	<td>8</td>
+	                <td>2023-2024-2</td>
+					<td>17010022</td>
+					<td>大学生安全知识教育（二）</td>
+					<td style="">1</td>
+					<td>96</td>
+					<td style="">已获</td>
+	            </tr>
+             
+            
+            
+			
+        </tbody></table>		
+	</div>
+</div>
+
+<div id="Footer1_divCopyright" class="Nsb_pw" style="display:;">
+  <div class="Nsb_rights">Copyright (C) 湖南强智科技发展有限公司  All Rights Reserved 湘ICP 备12010071号</div>
+</div>
+<script language="javascript"> 
+	
+
+	function fxkz(){
+		document.getElementById("di").style.display="";
+		var text1 = document.getElementById("in1").value;
+		var text2 = document.getElementById("in2").value;
+		document.getElementById("f1").style.color="red";
+		document.getElementById("f2").style.color="blue";
+		document.getElementById("gxk").style.color="blue";
+		document.getElementById("t2").style.display="none";
+		document.getElementById("t1").style.display="";
+		document.getElementById("t3").style.display="none";
+		document.getElementById("f3").innerText=text1;
+		document.getElementById("f4").innerText=text2;
+		
+	}
+	
+	function xkz(){
+		document.getElementById("di").style.display="none";
+		//var text1 = document.getElementById("in3").value;
+		//var text2 = document.getElementById("in4").value;
+		document.getElementById("f1").style.color="blue";
+		document.getElementById("f2").style.color="red";
+		document.getElementById("gxk").style.color="blue";
+		document.getElementById("t1").style.display="none";
+		document.getElementById("t2").style.display="";
+		document.getElementById("t3").style.display="none";
+		
+		//document.getElementById("f4").innerText=text2;
+	}
+	
+	function gxk(){
+		document.getElementById("di").style.display="";
+		var text1 = document.getElementById("in5").value;
+		var text2 = document.getElementById("in6").value;
+		document.getElementById("f1").style.color="blue";
+		document.getElementById("f2").style.color="blue";
+		document.getElementById("gxk").style.color="red";
+		document.getElementById("t1").style.display="none";
+		document.getElementById("t2").style.display="none";
+		document.getElementById("t3").style.display="";
+		document.getElementById("f3").innerText=text1;
+		document.getElementById("f4").innerText=text2;
+			
+	}
+</script>
+
+<div style="display: none;">
+  <div id="client-dialog-mask">
+    <div class="client-dialog">
+      <img class="client-dialog-close-btn" src="chrome-extension://aaobabmlkdkmdeokofgnijgegajffena/img/website/close.png">
+      <img class="client-dialog-logo" src="chrome-extension://aaobabmlkdkmdeokofgnijgegajffena/img/website/logo.png">
+      <p class="client-dialog-title">打开易解析电脑客户端</p>
+      <div class="client-dialog-desc">
+        为您提供更稳定、更快捷的服务，请打开客户端下载。若未安装客户端，请 <a href="https://www.savev.cc/downloads" target="_blank">点击下载</a>。
+      </div>
+      <div class="client-dialog-download-btn-8848">打开客户端</div>
+    </div>
+  </div>
+</div></body><div id="immersive-translate-popup" style="all: initial"></div></html>
